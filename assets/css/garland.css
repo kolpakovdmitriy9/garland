@@ -1,0 +1,173 @@
+/* ============================================================
+   Вебтех — компонент «Гирлянда»
+   Переиспользуемый конструктор: клик по гирлянде переключает
+   режимы мигания, цвета — через data-атрибуты / JS API.
+   Разметку генерирует assets/js/garland.js из <div class="garland">.
+   ============================================================ */
+
+.garland{
+  --glow-a:#FF3B30;
+  --glow-b:#0A84FF;
+  position:relative;
+  width:100%;
+  line-height:0;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.garland:focus-visible{ outline:2px solid var(--accent,#EE3924); outline-offset:4px; border-radius:8px; }
+
+/* ---------- Закрепление у края экрана ---------- */
+.garland[data-pin="top"],
+.garland[data-pin="bottom"]{
+  position:fixed;left:0;right:0;z-index:9999;pointer-events:auto;
+}
+.garland[data-pin="top"]{ top:64px; }
+.garland[data-pin="bottom"]{ bottom:0; }
+@media (min-width:768px){ .garland[data-pin="top"]{ top:72px; } }
+@media (min-width:1440px){ .garland[data-pin="top"]{ top:88px; } }
+
+.garland svg{ display:block;width:100%;height:auto;overflow:visible; }
+
+/* ---------- Провод ---------- */
+.garland .g-wire{
+  fill:none;stroke:#1C1C1C;stroke-width:2.5;stroke-linecap:round;
+}
+
+/* ---------- Лампочка ---------- */
+.garland .g-bulb{ --bulb:var(--glow-a); }
+.garland .g-lead{ stroke:#1C1C1C;stroke-width:2;stroke-linecap:round; }
+.garland .g-glow{
+  fill:var(--bulb);opacity:.55;
+  filter:blur(7px);
+  transition:opacity .25s ease;
+}
+.garland .g-body{
+  fill:var(--bulb);
+  transition:opacity .25s ease,fill .25s ease;
+}
+.garland .g-cap{ fill:#1C1C1C; }
+.garland .g-shine{ fill:#fff;opacity:.55; }
+
+/* ---------- Режимы мигания (класс .gmode-* на корне) ---------- */
+/* on — все горят постоянно */
+.garland.gmode-on .g-glow{ opacity:.6; }
+.garland.gmode-on .g-body{ opacity:1; }
+
+/* wave — последовательная волна по лампочкам */
+.garland.gmode-wave .g-glow,
+.garland.gmode-wave .g-body{
+  animation:g-pulse 2.4s ease-in-out infinite;
+  animation-delay:calc(var(--i,0) * .18s);
+}
+
+/* twinkle — хаотичное мигание, у каждой лампочки свой ритм */
+.garland.gmode-twinkle .g-glow,
+.garland.gmode-twinkle .g-body{
+  animation:g-pulse var(--t,2.2s) ease-in-out var(--d,0s) infinite;
+}
+
+/* chase — бегущий огонёк */
+.garland.gmode-chase .g-glow,
+.garland.gmode-chase .g-body{
+  animation:g-run .96s linear infinite;
+  animation-delay:calc(var(--i,0) * .12s);
+}
+
+/* off — погашено */
+.garland.gmode-off .g-glow{ opacity:0; }
+.garland.gmode-off .g-body{ opacity:.22; }
+
+@keyframes g-pulse{
+  0%,100%{ opacity:.15; }
+  50%{ opacity:.85; }
+}
+@keyframes g-run{
+  0%,100%{ opacity:.12; }
+  12%{ opacity:.95; }
+  36%{ opacity:.12; }
+}
+
+/* ---------- Доступность: без миганий ---------- */
+@media (prefers-reduced-motion:reduce){
+  .garland .g-glow,
+  .garland .g-body{ animation:none !important; }
+  .garland:not(.gmode-off) .g-glow{ opacity:.6; }
+  .garland:not(.gmode-off) .g-body{ opacity:1; }
+}
+
+/* ============================================================
+   Демо-страница garland.html (токены по STYLEGUIDE.md)
+   ============================================================ */
+.page{
+  --pad:16px; --gap:56px; --gap-l:72px; --hgap:24px; --hdr:64px;
+  --fs-h1:38px; --fs-h2:32px; --fs-h3:24px; --fs-lead:18px; --fs-body:16px;
+}
+@media (min-width:768px){
+  .page{
+    --pad:32px; --gap:80px; --gap-l:112px; --hgap:40px; --hdr:72px;
+    --fs-h1:56px; --fs-h2:48px; --fs-h3:28px; --fs-lead:20px; --fs-body:17px;
+  }
+}
+@media (min-width:1440px){
+  .page{
+    --pad:60px; --gap:120px; --gap-l:200px; --hgap:68px; --hdr:88px;
+    --fs-h1:80px; --fs-h2:67px; --fs-h3:36px; --fs-lead:24px; --fs-body:18px;
+  }
+}
+.page .h1{ font-size:var(--fs-h1); }
+.page .h2{ font-size:var(--fs-h2); }
+.page{ padding-top:var(--hdr); }
+.page .block{ padding-top:var(--gap); }
+.page .intro{ font-size:var(--fs-lead);margin-top:16px; }
+.page .sub{ font-size:var(--fs-lead); }
+@media (min-width:768px){ .page .intro{ margin-top:20px; } }
+@media (min-width:1440px){ .page .intro{ margin-top:24px; } }
+
+/* отступ первой секции — место под закреплённую гирлянду (~высота svg + запас) */
+.page .gdemo-hero{ padding-top:120px; }
+@media (min-width:768px){ .page .gdemo-hero{ padding-top:140px; } }
+@media (min-width:1440px){ .page .gdemo-hero{ padding-top:160px; } }
+
+/* панель-конструктор */
+.page .gdemo-panel{
+  margin-top:var(--hgap);
+  border:1px solid var(--field-line);border-radius:20px;padding:24px;
+  display:flex;flex-direction:column;gap:24px;background:var(--soft);
+}
+.page .gdemo-row{ display:flex;flex-direction:column;gap:12px; }
+.page .gdemo-lbl{
+  font-size:14px;font-weight:500;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);
+}
+.page .gdemo-modes,.page .gdemo-colors{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+}
+.page .gdemo-pick{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:16px;cursor:pointer;
+}
+.page .gdemo-pick input[type="color"]{
+  width:40px;height:40px;padding:0;border:1px solid var(--field-line);
+  border-radius:12px;background:#fff;cursor:pointer;
+}
+@media (min-width:768px){
+  .page .gdemo-panel{ border-radius:24px;padding:32px;gap:28px; }
+  .page .gdemo-row{ flex-direction:row;align-items:center;gap:20px; }
+  .page .gdemo-lbl{ flex:0 0 160px; }
+}
+@media (min-width:1440px){
+  .page .gdemo-panel{ border-radius:32px;padding:50px; }
+}
+
+/* блок с примером подключения */
+.page .gdemo-code{
+  margin-top:var(--hgap);
+  background:var(--soft);border-radius:20px;padding:24px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.page .gdemo-code code{
+  font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.5;
+  color:var(--fg);word-break:break-all;
+}
+@media (min-width:768px){ .page .gdemo-code{ border-radius:24px;padding:32px; } }
+@media (min-width:1440px){ .page .gdemo-code{ border-radius:32px;padding:40px; } }

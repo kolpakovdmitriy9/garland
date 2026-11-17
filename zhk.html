@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Готовый сайт жилого комплекса за 7 дней | Вебтех</title>
+  <meta name="description" content="Запустите сайт нового ЖК за 7 рабочих дней: каталог квартир, планировки, формы заявок, интеграция с CRM и готовая структура для продвижения. Адаптация под фирменный стиль жилого комплекса."/>
+  <link rel="icon" href="assets/img/favicon.ico" sizes="16x16"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/zhk.css"/>
+</head>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="header" data-header="default" data-page="other">
+    <div class="container">
+      <div class="row row_align-center row_space-between">
+        <div class="header_logo">
+          <a href="/" aria-label="Вебтех">
+            <svg viewBox="66.53 61.1 616.68 117.18" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Вебтех">
+              <path fill="#FA082C" d="M88.77 89.32c29.66,0 59.31,0 88.96,0l0 22.24c-29.65,0 -59.3,0 -88.96,0l0 -22.24zm88.96 84.52l0 -17.8 17.79 0c2.45,0 4.45,-1.99 4.45,-4.44l0 -13.35c0,-2.45 -2,-4.45 -4.45,-4.45l-17.79 0 0 -22.24 17.79 0c2.45,0 4.45,-1.99 4.45,-4.44l0 -13.35c0,-2.45 -2,-4.45 -4.45,-4.45l-17.79 0 0 -17.79c0,-2.45 -2,-4.45 -4.45,-4.45 -34.1,0 -68.2,0 -102.3,0 -2.45,0 -4.45,2 -4.45,4.45 0,34.1 0,68.21 0,102.31 0,2.45 2,4.44 4.45,4.44 34.1,0 68.2,0 102.3,0 2.45,0 4.45,-1.99 4.45,-4.44zm0 -17.8c-29.65,0 -59.3,0 -88.96,0l0 -22.24c29.66,0 59.31,0 88.96,0l0 22.24z"></path>
+              <path fill="#000" d="M297.17 110.3c4.45,1.45 7.81,4.06 10.08 7.83 2.27,3.77 3.4,8.24 3.4,13.42 0,7.7 -2.57,13.71 -7.71,18.04 -5.14,4.33 -12.13,6.5 -20.95,6.5l-37.54 0 0 -85.03 37.29 0c8.02,0 14.36,1.9 19.01,5.71 4.66,3.81 6.99,9.27 6.99,16.4 0,7.85 -3.52,13.56 -10.57,17.13zm-6.92 -14.22c0,-3.07 -0.87,-5.26 -2.62,-6.56 -1.74,-1.29 -4.47,-1.94 -8.2,-1.94l-17.61 0 0 17.13 18.1 0c6.88,0 10.33,-2.88 10.33,-8.63zm-8.63 43.49c4.21,0 7.17,-0.81 8.87,-2.43 1.7,-1.62 2.55,-3.97 2.55,-7.05 0,-3.23 -0.85,-5.62 -2.55,-7.16 -1.7,-1.54 -4.7,-2.31 -8.99,-2.31l-19.68 0 0 18.95 19.8 0zm73.86 -51.75c10.93,0 19.58,3.77 25.93,11.3 6.36,7.53 9.09,16.88 8.2,28.06l-51.26 0c0.57,5.18 2.43,9.15 5.59,11.9 3.16,2.76 7.08,4.13 11.78,4.13 3.4,0 6.44,-0.74 9.11,-2.24 2.67,-1.5 4.58,-3.55 5.71,-6.14l17.98 0c-2.35,7.53 -6.48,13.2 -12.39,17.01 -5.91,3.8 -12.68,5.71 -20.29,5.71 -10.36,0 -18.83,-3.28 -25.39,-9.84 -6.56,-6.56 -9.84,-14.86 -9.84,-24.9 0,-10.05 3.28,-18.39 9.84,-25.03 6.56,-6.64 14.9,-9.96 25.03,-9.96zm-0.12 14.34c-4.13,0 -7.58,1.11 -10.33,3.34 -2.75,2.22 -4.7,5.2 -5.83,8.93l31.95 0c-0.97,-3.73 -2.84,-6.71 -5.59,-8.93 -2.75,-2.23 -6.15,-3.34 -10.2,-3.34zm84.18 -10.82c8.42,0 15.44,2.96 21.07,8.87 5.63,5.91 8.44,13.61 8.44,23.08 0,10.21 -3.21,18.47 -9.65,24.78 -6.44,6.32 -14.52,9.48 -24.24,9.48 -4.77,0 -9.23,-0.81 -13.36,-2.43 -4.13,-1.62 -7.85,-4.09 -11.17,-7.41 -3.32,-3.32 -5.96,-7.8 -7.9,-13.42 -1.94,-5.63 -2.91,-12.13 -2.91,-19.5 0,-8.99 1.01,-16.74 3.03,-23.26 2.03,-6.52 4.7,-11.72 8.02,-15.61 3.32,-3.89 7.67,-6.95 13.06,-9.17 5.38,-2.23 10.89,-3.73 16.52,-4.5 5.63,-0.77 12.29,-1.15 19.98,-1.15l0 16.28c-5.99,0 -11.05,0.18 -15.18,0.54 -4.13,0.37 -8,1.1 -11.6,2.19 -3.61,1.09 -6.48,2.59 -8.63,4.49 -2.14,1.91 -3.87,4.4 -5.16,7.47 -1.3,3.08 -2.11,6.85 -2.43,11.3 2.19,-3.89 5.24,-6.86 9.17,-8.93 3.93,-2.06 8.24,-3.1 12.94,-3.1zm-5.11 51.27c4.94,0 9.06,-1.68 12.33,-5.04 3.28,-3.36 4.92,-7.8 4.92,-13.31 0,-5.42 -1.6,-9.79 -4.79,-13.12 -3.2,-3.31 -7.23,-4.98 -12.09,-4.98 -4.94,0 -9.09,1.69 -12.45,5.05 -3.36,3.36 -5.04,7.71 -5.04,13.05 0,5.51 1.64,9.95 4.92,13.31 3.28,3.36 7.35,5.04 12.2,5.04zm101.07 -53.33l0 16.4 -20.65 0 0 50.41 -17.37 0 0 -50.41 -20.53 0 0 -16.4 37.9 0 20.65 0zm42.03 -1.46c10.93,0 19.58,3.77 25.94,11.3 6.35,7.53 9.09,16.88 8.2,28.06l-51.27 0c0.57,5.18 2.43,9.15 5.59,11.9 3.16,2.76 7.09,4.13 11.78,4.13 3.41,0 6.44,-0.74 9.11,-2.24 2.68,-1.5 4.58,-3.55 5.71,-6.14l17.98 0c-2.35,7.53 -6.48,13.2 -12.39,17.01 -5.91,3.8 -12.67,5.71 -20.28,5.71 -10.37,0 -18.83,-3.28 -25.39,-9.84 -6.56,-6.56 -9.84,-14.86 -9.84,-24.9 0,-10.05 3.28,-18.39 9.84,-25.03 6.56,-6.64 14.9,-9.96 25.02,-9.96zm-0.12 14.34c-4.13,0 -7.57,1.11 -10.33,3.34 -2.75,2.22 -4.69,5.2 -5.83,8.93l31.95 0c-0.97,-3.73 -2.83,-6.71 -5.59,-8.93 -2.75,-2.23 -6.15,-3.34 -10.2,-3.34zm105.8 53.93l-20.65 0 -13.72 -21.01 -13 21.01 -20.89 0 23.56 -34.5 -22.35 -32.31 20.65 0 12.63 19.56 11.79 -19.56 20.89 0 -22.35 32.8 23.44 34.01z"></path>
+            </svg>
+          </a>
+        </div>
+        <nav class="header_menu header_menu_desktop">
+          <ul>
+            <li><a href="/projects">Проекты<span class="header_label header_label_project">11</span></a></li>
+            <li><a href="/services">Услуги</a></li>
+            <li><a href="/blog">Блог</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contacts">Контакты</a></li>
+            <li><a href="/vacancy">Вакансии<span class="header_label header_label_vacancy">+1</span></a></li>
+          </ul>
+        </nav>
+        <div class="header_handle">
+          <button type="button" class="button" data-size="small" data-popup-open>Получить консультацию</button>
+          <button class="header_toggle" aria-label="Меню"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="header_mobile">
+    <div class="header_overlay"></div>
+    <div class="header_mobile_menu">
+      <nav class="header_menu">
+        <ul>
+          <li><a href="/projects">Проекты<span class="header_label header_label_project">11</span></a></li>
+          <li><a href="/services">Услуги</a></li>
+          <li><a href="/blog">Блог</a></li>
+          <li><a href="/about">О нас</a></li>
+          <li><a href="/contacts">Контакты</a></li>
+          <li><a href="/vacancy">Вакансии<span class="header_label header_label_vacancy">+1</span></a></li>
+          <li class="header_mobileCta"><button type="button" class="button" data-popup-open>Получить консультацию</button></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===================== Popup ===================== -->
+  <div class="popup_wrap" data-opened="no" id="popup">
+    <div class="popup_overflow" data-popup-close></div>
+    <div class="popup_modal">
+      <button class="popup_modal_close" data-popup-close aria-label="Закрыть">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.887 12.025L0 1.11094L1.05934 0.0489674L11.9463 10.963L22.8333 0.0489674L23.8927 1.11094L13.0057 12.025L23.8917 22.938L22.8323 24L11.9463 13.087L1.06034 24L0.000999133 22.938L10.887 12.025Z" fill="#1C1C1C"></path></svg>
+      </button>
+      <div class="popup_modal_header">
+        <h3>Получить консультацию</h3>
+        <p>Введите данные, и мы вам перезвоним в ближайшее время</p>
+      </div>
+      <div class="popup_form">
+        <form data-lead-form>
+          <div class="input_block">
+            <div class="input_field"><input type="text" placeholder=" " name="name"/><span class="input_label">Имя</span></div>
+          </div>
+          <div class="input_block">
+            <div class="input_field"><input type="tel" placeholder=" " required name="phone"/><span class="input_label">Телефон<span class="required">*</span></span></div>
+          </div>
+          <div class="input_block">
+            <div class="input_field"><input type="email" placeholder=" " name="email"/><span class="input_label">Почта</span></div>
+          </div>
+          <div><button class="button button_form button_red" type="submit">Отправить</button></div>
+          <div class="checkbox_default">
+            <label>
+              <input type="checkbox" name="agree" checked/>
+              <span></span>
+              Даю <a href="/policy/" target="_blank">согласие</a> на обработку персональных данных и соглашаюсь с <a href="/policy/" target="_blank">политикой конфиденциальности</a>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Page ===================== -->
+  <div class="page" data-theme="light">
+    <main>
+
+      <!-- Hero -->
+      <section class="in hsec">
+        <div class="crumbs">
+          <span><a href="/">Главная</a></span><span>—</span>
+          <span><a href="/services">Услуги</a></span><span>—</span>
+          <b>Готовый сайт ЖК</b>
+        </div>
+        <div class="hero">
+          <div class="stats">
+            <div class="stat"><b><span class="v" data-count="7">7</span>&nbsp;дней</b><span>на&nbsp;реализацию проекта</span></div>
+            <div class="stat"><b><span class="v" data-count="105">105</span>&nbsp;000&nbsp;₽</b><span>стоимость сайта</span></div>
+            <div class="stat"><b>до&nbsp;<span class="v" data-count="100">100</span></b><span>квартир и&nbsp;15 типов планировок</span></div>
+            <div class="stat"><b>включено</b><span>наполнение сайта</span></div>
+          </div>
+          <div class="hero-r">
+            <span class="chip">Запуск за&nbsp;7 рабочих дней</span>
+            <h1 class="h1">Готовый сайт жилого комплекса за&nbsp;7&nbsp;дней</h1>
+            <p class="sub">Запустите сайт нового ЖК без&nbsp;длительной индивидуальной разработки: с&nbsp;каталогом квартир, формами заявок, интеграцией с&nbsp;CRM и&nbsp;готовой структурой для&nbsp;продвижения.</p>
+            <div class="btns">
+              <button type="button" class="btn red" data-popup-open>Обсудить проект</button>
+              <a class="btn line" href="#price">Стоимость решения</a>
+            </div>
+            <div class="crm">
+              <span>Интеграция с</span>
+              <span class="chip">amoCRM</span>
+              <span class="chip">Битрикс24</span>
+              <span class="chip">MacroCRM</span>
+              <span class="chip">Profitbase</span>
+              <span>и&nbsp;другими системами</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Почему готовое решение -->
+      <section class="in block">
+        <span class="chip reveal">Зачем готовое решение</span>
+        <h2 class="h2 reveal" style="margin-top:clamp(24px,3vw,60px)">Не&nbsp;просто шаблон, а&nbsp;готовая площадка для&nbsp;запуска продаж</h2>
+        <p class="intro reveal">Когда старт продаж уже запланирован, маркетингу важно вовремя подготовить сайт, запустить рекламу и&nbsp;обеспечить передачу обращений в&nbsp;отдел продаж. Индивидуальная разработка может занять несколько месяцев, а&nbsp;временная страница часто приводит к&nbsp;дополнительным расходам и&nbsp;повторной разработке.</p>
+        <div class="cmp3">
+          <div class="card reveal">
+            <span class="lbl">Вариант 1</span>
+            <h3 class="ttl">Индивидуальная разработка</h3>
+            <p class="sub">Несколько месяцев: структура&nbsp;→ прототипы&nbsp;→ дизайн&nbsp;→ согласования.</p>
+            <span class="mark">Продажи ждут</span>
+          </div>
+          <div class="card reveal" style="--rd:.08s">
+            <span class="lbl">Вариант 2</span>
+            <h3 class="ttl">Временная страница</h3>
+            <p class="sub">Временная страница не&nbsp;продаёт, а&nbsp;потом всё равно нужна повторная разработка.</p>
+            <span class="mark">Дополнительные расходы</span>
+          </div>
+          <div class="card hot reveal" style="--rd:.16s">
+            <span class="lbl">Вариант 3 · наш</span>
+            <h3 class="ttl">Готовый сайт ЖК</h3>
+            <p class="sub">Проверенная структура и&nbsp;техническая основа. Быстрее начать продвижение.</p>
+            <span class="mark">7 рабочих дней</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Задачи -->
+      <section class="in block">
+        <h2 class="h2 reveal">Готовый сайт сразу закрывает основные задачи</h2>
+        <p class="intro reveal">Позволяет быстрее начать продвижение объекта</p>
+        <div class="nums">
+          <div class="num reveal"><b>1</b><span class="ttl">Презентовать жилой комплекс</span><p>Позиционирование, локация и&nbsp;ключевое предложение&nbsp;— на&nbsp;первом экране.</p></div>
+          <div class="num reveal" style="--rd:.08s"><b>2</b><span class="ttl">Показать преимущества проекта</span><p>Готовые блоки под преимущества, инфраструктуру и&nbsp;особенности ЖК.</p></div>
+          <div class="num reveal" style="--rd:.16s"><b>3</b><span class="ttl">Разместить квартиры и&nbsp;планировки</span><p>Каталог с&nbsp;карточками, ценами и&nbsp;статусами доступности.</p></div>
+          <div class="num reveal"><b>4</b><span class="ttl">Собирать обращения</span><p>Формы заявок, звонки и&nbsp;мессенджеры в&nbsp;одном месте.</p></div>
+          <div class="num reveal" style="--rd:.08s"><b>5</b><span class="ttl">Передавать заявки в&nbsp;CRM</span><p>Обращения сразу попадают ответственным сотрудникам отдела продаж.</p></div>
+          <div class="num reveal" style="--rd:.16s"><b>6</b><span class="ttl">Отслеживать результаты</span><p>Подключённая аналитика показывает эффективность каналов.</p></div>
+        </div>
+      </section>
+
+      <!-- Когда выгодно -->
+      <section class="in block lg">
+        <h2 class="h2 reveal">Когда готовое решение особенно выгодно</h2>
+        <div class="nums">
+          <div class="num reveal"><b>01</b><span class="ttl">Запускается новый жилой комплекс</span><p>Нужно быстро подготовить полноценную площадку к&nbsp;старту рекламной кампании.</p></div>
+          <div class="num reveal" style="--rd:.08s"><b>02</b><span class="ttl">Срок запуска уже определён</span><p>Нет возможности несколько месяцев согласовывать структуру, прототипы и&nbsp;индивидуальный дизайн.</p></div>
+          <div class="num reveal" style="--rd:.16s"><b>03</b><span class="ttl">Нужен отдельный сайт под&nbsp;объект</span><p>У&nbsp;застройщика есть корпоративный сайт, но&nbsp;для&nbsp;нового ЖК требуется самостоятельная посадочная площадка.</p></div>
+          <div class="num reveal"><b>04</b><span class="ttl">Важно заранее понимать бюджет</span><p>Стоимость и&nbsp;состав решения определены до&nbsp;начала работ, без&nbsp;непредсказуемого роста бюджета.</p></div>
+          <div class="num reveal" style="--rd:.08s"><b>05</b><span class="ttl">Необходим каталог квартир</span><p>Покупателю нужно показать доступные предложения, планировки и&nbsp;способы обращения в&nbsp;отдел продаж.</p></div>
+          <div class="num reveal" style="--rd:.16s"><b>06</b><span class="ttl">Планируется рекламное продвижение</span><p>Сайт готов к&nbsp;подключению аналитики, форм, CRM и&nbsp;рекламных инструментов.</p></div>
+        </div>
+      </section>
+
+      <!-- Как устроен сайт -->
+      <section class="in block">
+        <h2 class="h2 reveal">Посмотрите, как&nbsp;будет устроен сайт вашего ЖК</h2>
+        <p class="intro reveal">Мы&nbsp;используем готовую структуру, разработанную специально для&nbsp;жилых комплексов. Она&nbsp;учитывает основные вопросы покупателей и&nbsp;помогает последовательно провести пользователя от&nbsp;знакомства с&nbsp;проектом до&nbsp;выбора квартиры и&nbsp;обращения в&nbsp;отдел продаж.</p>
+        <div class="struct">
+          <div>
+            <div class="bl reveal"><span class="t"><b>1</b>Первый экран</span><p>Показывает позиционирование, локацию и&nbsp;основное предложение ЖК.</p></div>
+            <div class="bl reveal" style="--rd:.05s"><span class="t"><b>2</b>О&nbsp;проекте</span><p>Описание жилого комплекса, архитектура, благоустройство и&nbsp;инфраструктура района.</p></div>
+            <div class="bl reveal" style="--rd:.1s"><span class="t"><b>3</b>Преимущества</span><p>Ключевые аргументы для&nbsp;покупателя: планировки, видовые характеристики, паркинг, двор.</p></div>
+            <div class="bl reveal" style="--rd:.15s"><span class="t"><b>4</b>Выбор квартир</span><p>Каталог квартир с&nbsp;планировками, ценами и&nbsp;статусами доступности.</p></div>
+            <div class="bl reveal" style="--rd:.2s"><span class="t"><b>5</b>Ход строительства</span><p>Фотоотчёты и&nbsp;сроки сдачи&nbsp;— блок, который легко обновлять.</p></div>
+            <div class="bl reveal" style="--rd:.25s"><span class="t"><b>6</b>Акции и&nbsp;условия покупки</span><p>Специальные предложения, ипотечные программы и&nbsp;способы покупки.</p></div>
+            <div class="bl reveal" style="--rd:.3s"><span class="t"><b>7</b>Контакты и&nbsp;обращение</span><p>Формы заявок, телефон отдела продаж, мессенджеры и&nbsp;схема проезда.</p></div>
+          </div>
+          <div class="demo reveal" style="--rd:.1s">
+            <svg viewBox="0 0 400 300" aria-hidden="true" style="width:100%;height:auto;display:block;margin-bottom:6px">
+              <rect class="ln" x="14" y="14" width="372" height="272" rx="12"></rect>
+              <path class="ln" d="M14 44 H386"></path>
+              <circle class="dot" cx="34" cy="29" r="3"></circle>
+              <circle class="ln" cx="50" cy="29" r="3"></circle>
+              <circle class="ln" cx="66" cy="29" r="3"></circle>
+              <path class="ln" d="M36 74 h160 M36 92 h118"></path>
+              <rect class="rd" x="36" y="106" width="110" height="28" rx="14"></rect>
+              <path class="ln" d="M52 121 h76"></path>
+              <circle class="dot" cx="330" cy="70" r="8"></circle>
+              <circle class="ping" cx="330" cy="70" r="8"></circle>
+              <path class="ln" d="M36 250 V182 h44 V142 h36 v40 h44 V162 h52 v88"></path>
+              <path class="ln" d="M48 196h10 M48 214h10 M64 196h10 M64 214h10"></path>
+              <path class="ln" d="M88 154h10 M104 154h10"></path>
+              <path class="ln" d="M132 196h10 M148 214h10 M164 196h10"></path>
+              <path class="ln" d="M196 176h10 M212 196h10 M228 216h10"></path>
+              <path class="ln" d="M28 250 H372"></path>
+            </svg>
+            <span class="t">Демоверсия</span>
+            <p>Цвета, изображения, тексты и&nbsp;содержание блоков адаптируются под&nbsp;конкретный жилой комплекс. Состав и&nbsp;порядок блоков можно изменить с&nbsp;учётом материалов и&nbsp;особенностей вашего проекта.</p>
+            <button type="button" class="btn line" data-popup-open>Запросить демо</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Каталог -->
+      <section class="in block">
+        <h2 class="h2 reveal">Цифровой каталог</h2>
+        <div class="catsplit">
+          <div class="illus reveal">
+            <svg viewBox="0 0 480 320" aria-hidden="true">
+              <rect class="ln" x="20" y="16" width="440" height="288" rx="14"></rect>
+              <path class="ln" d="M20 50 H460"></path>
+              <circle class="dot" cx="42" cy="33" r="3.2"></circle>
+              <circle class="ln" cx="58" cy="33" r="3.2"></circle>
+              <circle class="ln" cx="74" cy="33" r="3.2"></circle>
+              <rect class="ln" x="40" y="68" width="92" height="212" rx="8"></rect>
+              <path class="ln" d="M54 92h64M54 116h48M54 140h60M54 164h40M54 204h64M54 228h44"></path>
+              <rect class="ln" x="152" y="68" width="146" height="100" rx="8"></rect>
+              <rect class="ln" x="164" y="80" width="56" height="42" rx="4"></rect>
+              <path class="ln" d="M232 86h52M232 102h52M232 118h30"></path>
+              <circle class="dot" cx="170" cy="150" r="3.4"></circle>
+              <path class="ln" d="M182 150h44"></path>
+              <rect class="ln" x="306" y="68" width="134" height="100" rx="8"></rect>
+              <rect class="ln" x="318" y="80" width="56" height="42" rx="4"></rect>
+              <path class="ln" d="M386 86h42M386 102h42M386 118h26"></path>
+              <circle class="ln" cx="324" cy="150" r="3.4"></circle>
+              <path class="ln" d="M336 150h40"></path>
+              <rect class="rd" x="150" y="176" width="150" height="104" rx="10"></rect>
+              <rect class="ln" x="164" y="190" width="56" height="42" rx="4"></rect>
+              <path class="ln" d="M232 196h56M232 212h56M232 228h32"></path>
+              <circle class="dot beat" cx="170" cy="260" r="3.4"></circle>
+              <path class="ln" d="M182 260h44"></path>
+              <rect class="ln" x="306" y="178" width="134" height="100" rx="8"></rect>
+              <rect class="ln" x="318" y="190" width="56" height="42" rx="4"></rect>
+              <path class="ln" d="M386 196h42M386 212h42M386 228h26"></path>
+              <circle class="ln" cx="324" cy="260" r="3.4"></circle>
+              <path class="ln" d="M336 260h40"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="intro reveal" style="margin-top:0">Покупатель сможет выбрать квартиру прямо на&nbsp;сайте: посмотрит доступные варианты, сравнит планировки и&nbsp;оставит заявку по&nbsp;заинтересовавшему объекту. Если&nbsp;в&nbsp;проекте больше 100 квартир или&nbsp;15 типов планировок&nbsp;— рассчитаем дополнительный объём наполнения отдельно.</p>
+            <div class="cat">
+              <div class="it reveal">размещение до&nbsp;100 квартир</div>
+              <div class="it reveal" style="--rd:.05s">до&nbsp;15 типов планировок</div>
+              <div class="it reveal" style="--rd:.1s">карточки квартир со&nbsp;стоимостью и&nbsp;характеристиками</div>
+              <div class="it reveal" style="--rd:.15s">статус доступности</div>
+              <div class="it reveal">формы обращения по&nbsp;выбранному объекту</div>
+              <div class="it reveal" style="--rd:.05s">передача заявки в&nbsp;CRM</div>
+              <div class="it reveal" style="--rd:.1s">интеграция с&nbsp;Profitbase, MacroCRM</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Интеграции -->
+      <section class="in block">
+        <h2 class="h2 reveal">Заявки поступают в&nbsp;привычную систему отдела продаж</h2>
+        <p class="intro reveal">Подключим сайт к&nbsp;используемой застройщиком CRM или&nbsp;отраслевой системе, чтобы обращения не&nbsp;терялись и&nbsp;сразу поступали ответственным сотрудникам. Маркетингу не&nbsp;придётся вручную передавать заявки менеджерам.</p>
+        <div class="integ">
+          <div class="illus reveal">
+            <svg viewBox="0 0 480 260" aria-hidden="true">
+              <rect class="ln" x="28" y="28" width="64" height="46" rx="8"></rect>
+              <path class="ln" d="M42 44h36M42 56h22"></path>
+              <circle class="dot" cx="38" cy="36" r="2.6"></circle>
+              <rect class="ln" x="36" y="98" width="48" height="66" rx="8"></rect>
+              <path class="ln" d="M50 108h20"></path>
+              <circle class="ln" cx="60" cy="150" r="3"></circle>
+              <path class="ln" d="M30 200h60v26h-34l-12 12v-12h-14z"></path>
+              <circle class="dot" cx="46" cy="213" r="2.4"></circle>
+              <circle class="dot" cx="60" cy="213" r="2.4"></circle>
+              <path class="ln" d="M92 51 C 140 51 150 118 196 118"></path>
+              <path class="ln" d="M84 131 C 130 131 150 124 196 122"></path>
+              <path class="ln" d="M90 213 C 140 213 152 132 196 128"></path>
+              <rect class="ln" x="196" y="100" width="66" height="46" rx="8"></rect>
+              <path class="rd" d="M202 108 L229 128 L256 108"></path>
+              <path class="rd flow" d="M262 123 H296"></path>
+              <path class="ln" d="M330 92 V66 M352 100 L374 80 M352 146 L374 166 M330 152 V178"></path>
+              <circle class="ln" cx="330" cy="122" r="30"></circle>
+              <circle class="dot beat" cx="330" cy="122" r="5"></circle>
+              <circle class="ln" cx="330" cy="52" r="14"></circle>
+              <circle class="dot" cx="330" cy="52" r="3"></circle>
+              <circle class="ln" cx="384" cy="70" r="14"></circle>
+              <circle class="dot" cx="384" cy="70" r="3"></circle>
+              <circle class="ln" cx="384" cy="176" r="14"></circle>
+              <circle class="dot" cx="384" cy="176" r="3"></circle>
+              <circle class="ln" cx="330" cy="192" r="14"></circle>
+              <circle class="dot" cx="330" cy="192" r="3"></circle>
+              <path class="ln" d="M12 246 C 80 236 140 252 210 244 S 340 238 468 246"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="intro reveal" style="margin-top:0">Формы, звонки и&nbsp;мессенджеры собираются в&nbsp;одну заявку и&nbsp;передаются в&nbsp;CRM отдела продаж автоматически:</p>
+            <div class="chips reveal" style="--rd:.08s">
+              <span>amoCRM</span>
+              <span>Битрикс24</span>
+              <span>MacroCRM</span>
+              <span>Profitbase</span>
+              <span>Telegram</span>
+              <span>Max</span>
+              <span>+другие по&nbsp;согласованию</span>
+            </div>
+            <p class="note reveal" style="--rd:.16s">Возможность и&nbsp;стоимость конкретной интеграции подтверждаются после проверки используемой системы.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Адаптация -->
+      <section class="in block">
+        <h2 class="h2 reveal">Готовая структура&nbsp;— индивидуальное оформление</h2>
+        <p class="intro reveal">Сайт не&nbsp;будет выглядеть как&nbsp;обезличенный шаблон. Мы&nbsp;адаптируем его&nbsp;под&nbsp;фирменный стиль и&nbsp;позиционирование жилого комплекса.</p>
+        <div class="adapt">
+          <div class="col reveal">
+            <h3 class="ttl">Что меняется</h3>
+            <ul>
+              <li>цветовая палитра</li>
+              <li>логотип</li>
+              <li>изображения и&nbsp;рендеры</li>
+              <li>тексты и&nbsp;преимущества</li>
+              <li>акции и&nbsp;способы покупки</li>
+              <li>контакты и&nbsp;реквизиты застройщика</li>
+            </ul>
+          </div>
+          <div class="col accent reveal" style="--rd:.1s">
+            <h3 class="ttl">Что остаётся готовым</h3>
+            <ul>
+              <li>проверенная структура</li>
+              <li>техническая основа</li>
+              <li>каталог и&nbsp;формы</li>
+              <li>мобильная версия</li>
+              <li>система управления</li>
+              <li>базовая логика интеграций</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Цена -->
+      <section class="in block lg" id="price">
+        <h2 class="h2 reveal">Понятная стоимость без&nbsp;длительной оценки разработки</h2>
+        <div class="pricebox reveal">
+          <div>
+            <span class="chip">Основное предложение</span>
+            <h3 class="ttl" style="margin-top:16px">Готовый сайт ЖК</h3>
+            <div class="pr">105&nbsp;000<small>₽ единоразово</small></div>
+          </div>
+          <div class="inc">
+            <p class="t">В&nbsp;стоимость входит:</p>
+            <ul class="feats">
+              <li>адаптация готового решения</li>
+              <li>настройка структуры</li>
+              <li>фирменное оформление</li>
+              <li>наполнение предоставленными материалами</li>
+              <li>мобильная версия</li>
+              <li>формы обратной связи</li>
+              <li>подготовка к&nbsp;запуску</li>
+              <li>до&nbsp;100 квартир и&nbsp;15 типов планировок</li>
+            </ul>
+            <button type="button" class="btn red" data-popup-open>Обсудить запуск</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Процесс 7 дней -->
+      <section class="in block">
+        <h2 class="h2 reveal">От&nbsp;материалов до&nbsp;готового сайта&nbsp;— за&nbsp;7&nbsp;рабочих дней</h2>
+        <div class="flow7">
+          <div class="st reveal">
+            <div class="top"><span class="n">1</span><span class="day">день&nbsp;1</span></div>
+            <h3 class="ttl">Материалы</h3>
+            <p>Получаем логотип, фирменный стиль, рендеры, описание проекта, планировки и&nbsp;информацию об&nbsp;условиях покупки.</p>
+          </div>
+          <div class="st reveal" style="--rd:.06s">
+            <div class="top"><span class="n">2</span><span class="day">дни&nbsp;2–3</span></div>
+            <h3 class="ttl">Адаптация</h3>
+            <p>Настраиваем структуру, оформление и&nbsp;содержание сайта под&nbsp;жилой комплекс.</p>
+          </div>
+          <div class="st reveal" style="--rd:.12s">
+            <div class="top"><span class="n">3</span><span class="day">дни&nbsp;4–5</span></div>
+            <h3 class="ttl">Наполнение</h3>
+            <p>Размещаем тексты, изображения, квартиры, планировки, акции и&nbsp;контактную информацию.</p>
+          </div>
+          <div class="st reveal" style="--rd:.18s">
+            <div class="top"><span class="n">4</span><span class="day">день&nbsp;6</span></div>
+            <h3 class="ttl">Интеграции и&nbsp;проверка</h3>
+            <p>Подключаем формы, CRM, аналитику и&nbsp;проверяем отображение на&nbsp;разных устройствах.</p>
+          </div>
+          <div class="st reveal" style="--rd:.24s">
+            <div class="top"><span class="n">5</span><span class="day">день&nbsp;7</span></div>
+            <h3 class="ttl">Запуск</h3>
+            <p>Публикуем сайт и&nbsp;передаём доступы.</p>
+          </div>
+          <p class="note reveal">Срок запуска отсчитывается после получения всех необходимых материалов и&nbsp;доступов. Нестандартные интеграции и&nbsp;дополнительные доработки могут увеличить срок.</p>
+        </div>
+      </section>
+
+      <!-- После запуска -->
+      <section class="in block">
+        <h2 class="h2 reveal">После запуска маркетинг сможет самостоятельно обновлять информацию</h2>
+        <div class="editable">
+          <div class="grid">
+            <div class="it reveal">Акции и&nbsp;специальные предложения</div>
+            <div class="it reveal" style="--rd:.05s">Тексты и&nbsp;преимущества</div>
+            <div class="it reveal" style="--rd:.1s">Изображения</div>
+            <div class="it reveal">Информация о&nbsp;ходе строительства</div>
+            <div class="it reveal" style="--rd:.05s">Условия покупки</div>
+            <div class="it reveal" style="--rd:.1s">Контактные данные и&nbsp;отдельные блоки</div>
+          </div>
+          <p class="note reveal">Для&nbsp;обновления сайта не&nbsp;потребуется каждый раз ставить задачу программисту и&nbsp;ждать выхода доработки.</p>
+        </div>
+      </section>
+
+      <!-- Результаты -->
+      <section class="in block lg">
+        <h2 class="h2 reveal">Знаем, как&nbsp;устроен digital-маркетинг застройщика</h2>
+        <p class="intro reveal">Результаты получены при&nbsp;комплексной работе с&nbsp;сайтами и&nbsp;рекламными каналами</p>
+        <div class="cases3">
+          <div class="c reveal">
+            <span class="who">Застройщик №1</span>
+            <span class="big">500+</span>
+            <span class="d">обращений в&nbsp;месяц по&nbsp;проектам</span>
+          </div>
+          <div class="c reveal" style="--rd:.08s">
+            <span class="who">Застройщик №2</span>
+            <span class="big">70</span>
+            <span class="d">обращений в&nbsp;месяц в&nbsp;среднем</span>
+          </div>
+          <div class="c reveal" style="--rd:.16s">
+            <span class="who">Застройщик №3</span>
+            <span class="big">871</span>
+            <span class="d">обращение с&nbsp;онлайн-рекламы и&nbsp;70 проданных квартир</span>
+          </div>
+        </div>
+        <p class="intro reveal" style="margin-top:24px;font-size:15px">Показатели зависят от&nbsp;региона, объекта, предложения и&nbsp;рекламного бюджета.</p>
+      </section>
+
+      <!-- Другие форматы -->
+      <section class="in block">
+        <h2 class="h2 reveal">Если готового решения недостаточно</h2>
+        <div class="formats">
+          <div class="f reveal">
+            <h3 class="ttl">Индивидуальный лендинг для&nbsp;ЖК</h3>
+            <span class="pr">200&nbsp;000–350&nbsp;000&nbsp;₽</span>
+            <p class="cap">Подходит, если необходимо:</p>
+            <ul>
+              <li>полностью индивидуальное визуальное решение</li>
+              <li>уникальное позиционирование объекта</li>
+              <li>нестандартная структура</li>
+              <li>интерактивный генеральный план, 3D-тур</li>
+              <li>ипотечный калькулятор и&nbsp;дополнительные рекламные сценарии</li>
+            </ul>
+          </div>
+          <div class="f reveal" style="--rd:.1s">
+            <h3 class="ttl">Полноценный сайт застройщика</h3>
+            <span class="pr">800&nbsp;000–1&nbsp;200&nbsp;000&nbsp;₽</span>
+            <p class="cap">Подходит, если необходимо:</p>
+            <ul>
+              <li>объединить несколько жилых комплексов</li>
+              <li>создать общий каталог недвижимости</li>
+              <li>разместить квартиры, машиноместа и&nbsp;коммерческие помещения</li>
+              <li>создать личный кабинет и&nbsp;сложные интеграции</li>
+              <li>предусмотреть дальнейшее масштабирование сайта</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Сравнение -->
+      <section class="in block lg">
+        <h2 class="h2 reveal">Сравнение трёх вариантов</h2>
+        <div class="cmp-tbl reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Параметр</th>
+                <th class="hot">Готовый сайт ЖК</th>
+                <th>Индивидуальный лендинг</th>
+                <th>Сайт застройщика</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Основная задача</td><td>Быстро запустить сайт отдельного ЖК</td><td>Уникально представить отдельный объект</td><td>Объединить несколько объектов</td></tr>
+              <tr><td>Дизайн</td><td>Адаптация готового решения</td><td>Индивидуальный</td><td>Индивидуальный</td></tr>
+              <tr><td>Структура</td><td>Готовая, с&nbsp;возможностью адаптации</td><td>Проектируется под&nbsp;объект</td><td>Проектируется под&nbsp;компанию</td></tr>
+              <tr><td>Каталог квартир</td><td>Да</td><td>По&nbsp;задаче</td><td>Расширенный каталог</td></tr>
+              <tr><td>Сложные модули</td><td>Ограниченно</td><td>Да</td><td>Да</td></tr>
+              <tr><td>Срок</td><td>От&nbsp;7 рабочих дней</td><td>Определяется после оценки</td><td>Определяется после оценки</td></tr>
+              <tr><td>Стоимость</td><td>105&nbsp;000&nbsp;₽</td><td>200&nbsp;000–350&nbsp;000&nbsp;₽</td><td>800&nbsp;000–1&nbsp;200&nbsp;000&nbsp;₽</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cmp-cards">
+          <div class="cc hot reveal">
+            <span class="ttl">Готовый сайт ЖК</span>
+            <span class="row"><b>Основная задача</b><span>Быстро запустить сайт отдельного ЖК</span></span>
+            <span class="row"><b>Дизайн</b><span>Адаптация готового решения</span></span>
+            <span class="row"><b>Структура</b><span>Готовая, с&nbsp;возможностью адаптации</span></span>
+            <span class="row"><b>Каталог квартир</b><span>Да</span></span>
+            <span class="row"><b>Сложные модули</b><span>Ограниченно</span></span>
+            <span class="row"><b>Срок</b><span>От&nbsp;7 рабочих дней</span></span>
+            <span class="row"><b>Стоимость</b><span>105&nbsp;000&nbsp;₽</span></span>
+          </div>
+          <div class="cc reveal" style="--rd:.08s">
+            <span class="ttl">Индивидуальный лендинг</span>
+            <span class="row"><b>Основная задача</b><span>Уникально представить отдельный объект</span></span>
+            <span class="row"><b>Дизайн</b><span>Индивидуальный</span></span>
+            <span class="row"><b>Структура</b><span>Проектируется под&nbsp;объект</span></span>
+            <span class="row"><b>Каталог квартир</b><span>По&nbsp;задаче</span></span>
+            <span class="row"><b>Сложные модули</b><span>Да</span></span>
+            <span class="row"><b>Срок</b><span>Определяется после оценки</span></span>
+            <span class="row"><b>Стоимость</b><span>200&nbsp;000–350&nbsp;000&nbsp;₽</span></span>
+          </div>
+          <div class="cc reveal" style="--rd:.16s">
+            <span class="ttl">Сайт застройщика</span>
+            <span class="row"><b>Основная задача</b><span>Объединить несколько объектов</span></span>
+            <span class="row"><b>Дизайн</b><span>Индивидуальный</span></span>
+            <span class="row"><b>Структура</b><span>Проектируется под&nbsp;компанию</span></span>
+            <span class="row"><b>Каталог квартир</b><span>Расширенный каталог</span></span>
+            <span class="row"><b>Сложные модули</b><span>Да</span></span>
+            <span class="row"><b>Срок</b><span>Определяется после оценки</span></span>
+            <span class="row"><b>Стоимость</b><span>800&nbsp;000–1&nbsp;200&nbsp;000&nbsp;₽</span></span>
+          </div>
+        </div>
+        <p class="intro reveal" style="margin-top:32px">В&nbsp;большинстве случаев для&nbsp;запуска отдельного ЖК достаточно готового решения. Индивидуальная разработка нужна, если проект выходит за&nbsp;рамки стандартной структуры или&nbsp;требует нестандартной функциональности.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="in block lg">
+        <h2 class="h2 reveal">Частые вопросы</h2>
+        <ul class="list full" id="faq">
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq0">
+              <span class="t">Сайт не&nbsp;будет похож на&nbsp;шаблон?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq0"><div><p class="ans">Нет. Мы&nbsp;адаптируем фирменный стиль, цвета, рендеры и&nbsp;тексты под&nbsp;ваш жилой комплекс. Останется готовой только структура и&nbsp;техническая основа&nbsp;— внешне сайт будет самостоятельной площадкой объекта.</p></div></div>
+          </li>
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq1">
+              <span class="t">Что нужно от&nbsp;нас для&nbsp;старта?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq1"><div><p class="ans">Логотип и&nbsp;фирменный стиль, рендеры, описание проекта, планировки, цены и&nbsp;информацию об&nbsp;условиях покупки. Срок в&nbsp;7&nbsp;дней отсчитывается после получения всех материалов и&nbsp;доступов.</p></div></div>
+          </li>
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq2">
+              <span class="t">Можно&nbsp;ли подключить нашу CRM?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq2"><div><p class="ans">Да. Подключаем amoCRM, Битрикс24, MacroCRM, Profitbase и&nbsp;другие системы. Возможность и&nbsp;стоимость конкретной интеграции подтверждаются после проверки используемой системы.</p></div></div>
+          </li>
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq3">
+              <span class="t">Что если квартир больше 100?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq3"><div><p class="ans">Если в&nbsp;проекте больше 100 квартир или&nbsp;15 типов планировок, рассчитаем дополнительный объём наполнения отдельно&nbsp;— стоимость будет понятна до&nbsp;начала работ.</p></div></div>
+          </li>
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq4">
+              <span class="t">Кто будет обновлять сайт после запуска?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq4"><div><p class="ans">Ваши сотрудники смогут сами менять акции, тексты, изображения, информацию о&nbsp;ходе строительства и&nbsp;контакты&nbsp;— без&nbsp;обращения к&nbsp;разработчику.</p></div></div>
+          </li>
+          <li>
+            <button type="button" class="rowb" aria-expanded="false" aria-controls="fq5">
+              <span class="t">Нужен&nbsp;ли отдельный сайт, если&nbsp;есть корпоративный?</span>
+              <span class="go" aria-hidden="true"><svg width="20" height="26" viewBox="0 0 42 52" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l30 23L8 49"></path></svg></span>
+            </button>
+            <div class="acc" id="fq5"><div><p class="ans">Для&nbsp;нового ЖК самостоятельная посадочная площадка работает лучше: отдельное позиционирование, свой каталог квартир и&nbsp;прозрачная аналитика рекламной кампании объекта.</p></div></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="in block" id="contact">
+        <div class="lead">
+          <div class="info">
+            <h2 class="h2 reveal">Запустите сайт жилого комплекса без&nbsp;долгого старта</h2>
+            <p class="p reveal">Оставьте контакты&nbsp;— покажем демоверсию и&nbsp;подготовим расчёт.</p>
+            <div class="contacts">
+              <a class="reveal" href="tel:+78412254720">
+                <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-3 2c1 2.5 3.5 5 6 6l2-3 5 2v4c0 1-1 2-2 2C10 22 2 14 2 5c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                +7&nbsp;8412&nbsp;25-47-20
+              </a>
+              <a class="reveal" style="--rd:.08s" href="https://t.me/kademadigital" target="_blank" rel="noopener">
+                <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M21.9 4.3l-3.1 14.7c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-.9.5l.3-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L7.2 13.2 2.6 11.7c-1-.3-1-1 .2-1.4l17.7-6.8c.8-.3 1.5.2 1.4 1.8z" fill="currentColor"/></svg></span>
+                Telegram
+              </a>
+            </div>
+          </div>
+          <div class="formcard reveal" style="--rd:.1s">
+            <form data-lead-form>
+              <div class="input_block">
+                <div class="input_field"><input type="text" placeholder=" " name="name"/><span class="input_label">Имя</span></div>
+              </div>
+              <div class="input_block">
+                <div class="input_field"><input type="tel" placeholder=" " required name="phone"/><span class="input_label">Телефон<span class="required">*</span></span></div>
+              </div>
+              <div class="input_block">
+                <div class="input_field"><input type="email" placeholder=" " name="email"/><span class="input_label">Email</span></div>
+              </div>
+              <div class="radios" role="radiogroup" aria-label="Удобный способ связи">
+                <input type="radio" id="c-call" name="channel" value="Звонок" checked/><label for="c-call">Звонок</label>
+                <input type="radio" id="c-tg" name="channel" value="Telegram"/><label for="c-tg">Telegram</label>
+                <input type="radio" id="c-wa" name="channel" value="WhatsApp"/><label for="c-wa">WhatsApp</label>
+              </div>
+              <div><button class="btn red" type="submit" style="width:100%">Получить демо и расчёт</button></div>
+              <p class="form-note">Нажимая кнопку, даю <a href="/policy/" target="_blank">согласие</a> на&nbsp;обработку персональных данных и&nbsp;получение информационных сообщений</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-12 footer-col-1">
+          <div class="footer_logo"><img src="assets/img/logo.svg" alt="Вебтех"/></div>
+          <div class="footer_phones footer_phones_desktop">
+            <p>Телефон:</p>
+            <div><a href="tel:+78412254720">+7&nbsp;8412&nbsp;25-47-20</a></div>
+          </div>
+        </div>
+        <div class="col-6 col-12 footer-col-2">
+          <div class="footer_menu">
+            <ul class="footer_list">
+              <li><a href="/projects">Проекты</a></li>
+              <li><a href="/services">Услуги</a></li>
+              <li><a href="/blog">Блог</a></li>
+              <li><a href="/about">О&nbsp;нас</a></li>
+              <li><a href="/contacts">Контакты</a></li>
+              <li><a href="/vacancy">Вакансии</a></li>
+            </ul>
+          </div>
+          <div class="footer_office">
+            <div class="row">
+              <div class="col-6 col-12">
+                <div class="footer_office_title">Офис в&nbsp;<span class="footer_city">Пензе:</span></div>
+                <p>г.&nbsp;Пенза, ул.&nbsp;Ставского, д.&nbsp;13</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer_phones footer_phones_mobile">
+            <p>Телефоны:</p>
+            <div><a href="tel:+78412254720">+7&nbsp;8412&nbsp;25-47-20</a></div>
+          </div>
+        </div>
+        <div class="col-12 footer-col-3">
+          <div class="row row_space-between">
+            <div class="footer_copyright">
+              <p>©&nbsp;2026 Вебтех</p>
+              <a href="/policy">Политика конфиденциальности</a>
+            </div>
+            <div class="footer_social">
+              <a href="https://t.me/kademadigital" target="_blank" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M21.9 4.3l-3.1 14.7c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-.9.5l.3-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L7.2 13.2 2.6 11.7c-1-.3-1-1 .2-1.4l17.7-6.8c.8-.3 1.5.2 1.4 1.8z"/></svg>
+              </a>
+              <a href="https://vk.com/kademadigital" target="_blank" aria-label="ВКонтакте">
+                <svg viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12.7 18c-5.5 0-8.6-3.8-8.7-10.2h2.8c.1 4.7 2.2 6.7 3.7 7.1V7.8h2.7v4c1.5-.2 3-2.1 3.5-4h2.7c-.4 2.5-2.2 4.3-3.5 5.1 1.3.6 3.5 2.3 4.3 5.1h-3c-.6-2-2.1-3.6-4.2-3.8V18h-.1z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie -->
+  <div class="cookie" id="cookie" hidden>
+    <p>На&nbsp;сайте осуществляется обработка пользовательских данных с&nbsp;использованием Cookie в&nbsp;соответствии с&nbsp;<a href="/policy">Условиями обработки пользовательских данных</a>.</p>
+    <button class="btn" id="cookie-ok">Хорошо</button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/zhk.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>debug</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/garland.css"/>
+</head>
+<body>
+  <div class="garland" data-pin="top" data-colors="multi" data-mode="twinkle"></div>
+  <div class="page" data-theme="light">
+    <main>
+      <section class="in block gdemo-hero" id="s"><span class="chip">Компонент</span></section>
+    </main>
+  </div>
+  <script src="assets/js/garland.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var page = document.querySelector('.page');
+      var s = document.getElementById('s');
+      var g = document.querySelector('.garland');
+      var pre = document.createElement('pre');
+      pre.id = 'dbg';
+      pre.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:999999;background:#fff;border:2px solid red;padding:12px;font:14px monospace;color:#000';
+      function cs(el, prop) { return getComputedStyle(el)[prop]; }
+      pre.textContent = [
+        'innerWidth=' + window.innerWidth,
+        'docScrollWidth=' + document.documentElement.scrollWidth,
+        'm768=' + matchMedia('(min-width:768px)').matches,
+        'm1440=' + matchMedia('(min-width:1440px)').matches,
+        'page.padTop=' + cs(page, 'paddingTop'),
+        'page.gap=' + cs(page).getPropertyValue('--gap'),
+        'sec.padTop=' + cs(s, 'paddingTop'),
+        'sec.rectTop=' + Math.round(s.getBoundingClientRect().top),
+        'garland.top=' + cs(g, 'top'),
+        'garland.pos=' + cs(g, 'position'),
+        'garland.rectH=' + Math.round(g.getBoundingClientRect().height),
+        'garland.svgH=' + (g.querySelector('svg') ? Math.round(g.querySelector('svg').getBoundingClientRect().height) : 'none'),
+        'chip.rectTop=' + Math.round(document.querySelector('.chip').getBoundingClientRect().top)
+      ].join('\n');
+      document.body.appendChild(pre);
+    });
+  </script>
+</body>
+</html>
