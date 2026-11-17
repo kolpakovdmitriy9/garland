@@ -157,12 +157,13 @@
       <!-- Наполнение для проверки скролла -->
       <section class="in block">
         <h2 class="h2">Как подключить</h2>
-        <p class="intro">На&nbsp;любую страницу проекта: разметка, два файла и&nbsp;готово.</p>
+        <p class="intro">На&nbsp;любую страницу любого сайта: разметка, два файла и&nbsp;готово. Файлы можно скачать из&nbsp;репозитория или подключить напрямую по&nbsp;ссылке&nbsp;CDN&nbsp;— тогда обновления применятся сами.</p>
         <div class="gdemo-code">
-          <code>&lt;link rel="stylesheet" href="assets/css/garland.css"/&gt;</code>
+          <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kolpakovdmitriy9/garland@main/assets/css/garland.css"/&gt;</code>
           <code>&lt;div class="garland" data-pin="top" data-colors="multi" data-mode="twinkle"&gt;&lt;/div&gt;</code>
-          <code>&lt;script src="assets/js/garland.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="https://cdn.jsdelivr.net/gh/kolpakovdmitriy9/garland@main/assets/js/garland.js"&gt;&lt;/script&gt;</code>
         </div>
+        <p class="intro"><span class="red">Локально</span> вместо CDN-ссылок используйте <b>assets/css/garland.css</b> и&nbsp;<b>assets/js/garland.js</b>. <span class="red">@main</span> в&nbsp;адресе&nbsp;— ветка: всегда последняя версия; чтобы зафиксировать, укажите хэш коммита.</p>
         <p class="intro"><span class="red">data-pin</span>&nbsp;— закрепление: <b>top</b> / <b>bottom</b> / без атрибута для гирлянды в&nbsp;потоке.
           <span class="red">data-colors</span>&nbsp;— multi (все разные) / two (два цвета) / one (один цвет).
           <span class="red">data-mode</span>&nbsp;— стартовый режим: on, wave, twinkle, chase, off.
