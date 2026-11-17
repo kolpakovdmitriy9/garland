@@ -13,8 +13,9 @@
 
 ## Компонент «Гирлянда»
 
-Переиспользуемый компонент: `assets/css/garland.css` + `assets/js/garland.js`.
+Переиспользуемый компонент: `assets/css/garland.css` + `assets/js/garland.js` (только стили
+гирлянды, безо всего лишнего — можно подключать на другие сайты, в т.ч. через CDN jsDelivr).
 Разметка — `<div class="garland" data-pin="top|bottom" data-colors="multi|two|one"
 data-mode="on|wave|twinkle|chase|off"></div>`; SVG генерирует скрипт. Клик по гирлянде
 переключает режимы мигания по кругу, JS API на элементе: `el.garland.setMode/setColors/next/getState`.
-Демо-страница с панелью-конструктором — `index.html` (бывшая `garland.html`).
+Демо-страница с панелью-конструктором — `index.html`, её стили — отдельно в `assets/css/garland-demo.css`.
