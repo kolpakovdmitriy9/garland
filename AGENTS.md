@@ -1,7 +1,7 @@
 # Проект «Сайт WEBTEX»
 
-Промо-страницы студии «Вебтех»: статические HTML-страницы (`index.html`, `stomatologii.html`, `zhk.html`),
-общие стили `assets/css/style.css`, общий скрипт `assets/js/main.js`, страничные стили/скрипты
+Промо-страницы студии «Вебтех»: статические HTML-страницы (`support.html`, `stomatologii.html`, `zhk.html`),
+главная `index.html` — демо гирлянды-конструктора. Общие стили `assets/css/style.css`, общий скрипт `assets/js/main.js`, страничные стили/скрипты
 рядом (например, `zhk.css`, `zhk.js`). Референсы-выгрузки: `webtex-support.html`, `kadema-dental.html`.
 
 ## Обязательно к прочтению перед вёрсткой
@@ -17,4 +17,4 @@
 Разметка — `<div class="garland" data-pin="top|bottom" data-colors="multi|two|one"
 data-mode="on|wave|twinkle|chase|off"></div>`; SVG генерирует скрипт. Клик по гирлянде
 переключает режимы мигания по кругу, JS API на элементе: `el.garland.setMode/setColors/next/getState`.
-Демо-страница с панелью-конструктором — `garland.html`.
+Демо-страница с панелью-конструктором — `index.html` (бывшая `garland.html`).
