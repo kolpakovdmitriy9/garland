@@ -1953,9 +1953,9 @@
 
   styleSheet.insertRule(`
       .iisnowflake {
-       width: 8px;
-       height: 8px;
-       border-radius: 4px;
+       width: 5px;
+       height: 5px;
+       border-radius: 50%;
        background: #fff;
        box-shadow: 0 0 6px rgba(255,255,255,1);
        position: absolute;
@@ -2000,7 +2000,7 @@
       this.element = document.createElement("div");
       this.element.classList.add("iisnowflake");
       this.element.style.opacity = this.opacity;
-      var size = (6 + Math.random() * 7).toFixed(1) + "px";
+      var size = (3.5 + Math.random() * 4).toFixed(1) + "px";
       this.element.style.width = size;
       this.element.style.height = size;
       container.appendChild(this.element);
