@@ -2024,21 +2024,95 @@
   }
 
   var angle = 0;
+  window.__snowEnabled = window.__snowEnabled !== false;
   function loop() {
     angle += 0.005;
-    if (flakes.length < maxflakes) {
+    if (window.__snowEnabled !== false && flakes.length < maxflakes) {
       flakes.push(new Flake());
     }
-    if (show) {
+    if (show && window.__snowEnabled !== false) {
       flakes.forEach((element)=>{
         element.move(angle);
       })
-      window.requestAnimationFrame(loop);
     }
+    window.requestAnimationFrame(loop);
   }
   loop();
 
 })</script>
+<!-- Панель настроек новогодних украшений -->
+<div id="ny-panel">
+  <button id="ny-toggle" type="button">Настройки</button>
+  <div id="ny-box">
+    <div class="ny-title">Новогодние украшения</div>
+    <label class="ny-row"><input type="checkbox" data-ny="branches" checked><span>Ветки</span></label>
+    <input type="range" data-ny-scale="branches" min="50" max="200" value="100" title="Масштаб по высоте, %">
+    <label class="ny-row"><input type="checkbox" data-ny="garland" checked><span>Гирлянда</span></label>
+    <input type="range" data-ny-scale="garland" min="50" max="200" value="100" title="Масштаб по высоте, %">
+    <label class="ny-row"><input type="checkbox" data-ny="snow" checked><span>Снег</span></label>
+    <input type="range" data-ny-scale="snow" min="50" max="200" value="100" title="Масштаб снежинок, %">
+    <label class="ny-row"><input type="checkbox" data-ny="logo" checked><span>Новогодний логотип</span></label>
+  </div>
+</div>
+<style>
+  #ny-panel{position:fixed;right:16px;bottom:16px;z-index:10000;font:14px/1.4 system-ui,-apple-system,sans-serif;text-align:left}
+  #ny-toggle{border:0;border-radius:999px;padding:10px 18px;background:#013c28;color:#9bd237;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+  #ny-toggle:hover{background:#02553a}
+  #ny-box{display:none;background:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.25);padding:16px;width:250px;color:#013c28;margin-bottom:10px}
+  #ny-box.ny-open{display:block}
+  .ny-title{font-weight:700;margin-bottom:10px}
+  .ny-row{display:flex;align-items:center;gap:8px;margin:8px 0 2px;cursor:pointer}
+  .ny-row input{accent-color:#013c28;width:16px;height:16px}
+  #ny-box input[type=range]{width:100%;accent-color:#9bd237;margin:0 0 6px}
+</style>
+<script>
+  (function () {
+    var LOGO_NY = 'assets/img/logo-newyear.png';
+    var LOGO_ORIG = 'https://zkap.ru/local/templates/app/frontend/dist/img/logo.svg';
+    var KEY = 'zkap-ny-settings';
+    var state = { on: { branches: true, garland: true, snow: true, logo: true }, scale: { branches: 100, garland: 100, snow: 100 } };
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (saved) {
+        for (var k in state.on) if (k in saved.on) state.on[k] = saved.on[k];
+        for (var s in state.scale) if (s in saved.scale) state.scale[s] = saved.scale[s];
+      }
+    } catch (e) {}
+
+    window.__snowEnabled = state.on.snow;
+
+    function apply() {
+      var decor = document.querySelector('.b-head-decor');
+      if (decor) decor.style.display = state.on.branches ? '' : 'none';
+      if (decor) decor.style.zoom = state.scale.branches / 100;
+      document.querySelectorAll('.garland').forEach(function (g) {
+        g.style.display = state.on.garland ? '' : 'none';
+        g.style.zoom = state.scale.garland / 100;
+      });
+      var snow = document.querySelector('.iisnowflakes');
+      if (snow) { snow.style.display = state.on.snow ? '' : 'none'; snow.style.zoom = state.scale.snow / 100; }
+      window.__snowEnabled = state.on.snow;
+      var logo = document.querySelector('.header__logo-img');
+      if (logo) logo.src = state.on.logo ? LOGO_NY : LOGO_ORIG;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('#ny-box [data-ny]').forEach(function (input) {
+        input.checked = state.on[input.dataset.ny];
+        input.addEventListener('change', function () { state.on[input.dataset.ny] = input.checked; apply(); });
+      });
+      document.querySelectorAll('#ny-box [data-ny-scale]').forEach(function (range) {
+        range.value = state.scale[range.dataset.nyScale];
+        range.addEventListener('input', function () { state.scale[range.dataset.nyScale] = +range.value; apply(); });
+      });
+      document.getElementById('ny-toggle').addEventListener('click', function () {
+        document.getElementById('ny-box').classList.toggle('ny-open');
+      });
+      apply();
+    });
+  })();
+</script>
 <script src="assets/motnya/script.js"></script>
 <script src="assets/js/garland.js"></script>
 </body>
