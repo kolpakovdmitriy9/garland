@@ -1953,10 +1953,11 @@
 
   styleSheet.insertRule(`
       .iisnowflake {
-       width: 4px;
-       height: 4px;
-       border-radius: 2px;
-       background: #ddf;
+       width: 6px;
+       height: 6px;
+       border-radius: 3px;
+       background: #fff;
+       box-shadow: 0 0 4px rgba(255,255,255,.9);
        position: absolute;
       }
   `, styleSheet.cssRules.length);
@@ -1998,6 +1999,9 @@
       this.element = document.createElement("div");
       this.element.classList.add("iisnowflake");
       this.element.style.opacity = this.opacity;
+      var size = (4 + Math.random() * 5).toFixed(1) + "px";
+      this.element.style.width = size;
+      this.element.style.height = size;
       container.appendChild(this.element);
     }
     move(angle) {
