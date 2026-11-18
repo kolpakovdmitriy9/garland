@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Гирлянда-конструктор | Вебтех</title>
+  <meta name="description" content="Переиспользуемый компонент «гирлянда»: мигающие огоньки через всю ширину страницы, клик переключает режимы мигания, настраиваемые цвета."/>
+  <link rel="icon" href="assets/img/favicon.ico" sizes="16x16"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/garland.css"/>
+  <link rel="stylesheet" href="assets/css/garland-demo.css"/>
+</head>
+<body>
+
+  <!-- ===================== Page ===================== -->
+  <div class="page" data-theme="light">
+    <main>
+
+      <!-- Hero -->
+      <section class="in block gdemo-hero">
+        <span class="chip">Компонент</span>
+        <h1 class="h1">Гирлянда-конструктор</h1>
+        <p class="sub">Мигающие огоньки через всю ширину страницы. <span class="red">Нажмите на&nbsp;гирлянду</span>&nbsp;— режим мигания сменится, как на&nbsp;настоящей ёлочной гирлянде.</p>
+      </section>
+
+      <!-- Конструктор -->
+      <section class="in block">
+        <h2 class="h2">Настройки</h2>
+        <p class="intro">Управление применяется ко&nbsp;всем гирляндам на&nbsp;странице (через JS API компонента).</p>
+        <div class="gdemo-panel">
+          <div class="gdemo-row">
+            <span class="gdemo-lbl">Режим мигания</span>
+            <div class="gdemo-modes" role="group" aria-label="Режим мигания">
+              <button type="button" class="btn line" data-mode="on">Постоянно</button>
+              <button type="button" class="btn line" data-mode="wave">Волна</button>
+              <button type="button" class="btn red" data-mode="twinkle">Мерцание</button>
+              <button type="button" class="btn line" data-mode="chase">Бегущий огонёк</button>
+              <button type="button" class="btn line" data-mode="off">Выключено</button>
+            </div>
+          </div>
+          <div class="gdemo-row">
+            <span class="gdemo-lbl">Цвета лампочек</span>
+            <div class="gdemo-colors" role="group" aria-label="Цветовая схема">
+              <button type="button" class="btn red" data-colors="multi">Все разные</button>
+              <button type="button" class="btn line" data-colors="two">Два цвета</button>
+              <button type="button" class="btn line" data-colors="one">Один цвет</button>
+              <label class="gdemo-pick"><input type="color" id="g-color-a" value="#ff3b30"/><span>Цвет&nbsp;А</span></label>
+              <label class="gdemo-pick" id="g-pick-b"><input type="color" id="g-color-b" value="#0a84ff"/><span>Цвет&nbsp;Б</span></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Гирлянда в блоке -->
+      <section class="in block">
+        <h2 class="h2">Гирлянда внутри блока</h2>
+        <p class="intro">Вторая гирлянда живёт в&nbsp;потоке страницы&nbsp;— скроллится вместе с&nbsp;блоком и&nbsp;отзывается на&nbsp;те&nbsp;же настройки.</p>
+        <div class="garland" data-colors="two" data-mode="wave"></div>
+      </section>
+
+      <!-- Как подключить -->
+      <section class="in block">
+        <h2 class="h2">Как подключить</h2>
+        <p class="intro">На&nbsp;любую страницу любого сайта: разметка, два файла и&nbsp;готово. Файлы можно скачать из&nbsp;репозитория или подключить напрямую по&nbsp;ссылке&nbsp;CDN&nbsp;— тогда обновления применятся сами.</p>
+        <div class="gdemo-code">
+          <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kolpakovdmitriy9/garland@main/assets/css/garland.css"/&gt;</code>
+          <code>&lt;div class="garland" data-pin="top" data-colors="multi" data-mode="twinkle"&gt;&lt;/div&gt;</code>
+          <code>&lt;script src="https://cdn.jsdelivr.net/gh/kolpakovdmitriy9/garland@main/assets/js/garland.js"&gt;&lt;/script&gt;</code>
+        </div>
+        <p class="intro"><span class="red">Локально</span> вместо CDN-ссылок используйте <b>assets/css/garland.css</b> и&nbsp;<b>assets/js/garland.js</b> — это весь компонент. Стили самой этой демо-страницы лежат отдельно, в&nbsp;<b>assets/css/garland-demo.css</b>, и&nbsp;для переноса на&nbsp;другой сайт не&nbsp;нужны. <span class="red">@main</span> в&nbsp;адресе&nbsp;— ветка: всегда последняя версия; чтобы зафиксировать, укажите хэш коммита.</p>
+        <p class="intro"><span class="red">data-pin</span>&nbsp;— закрепление: <b>top</b> / <b>bottom</b> / без атрибута для гирлянды в&nbsp;потоке.
+          <span class="red">data-colors</span>&nbsp;— multi (все разные) / two (два цвета) / one (один цвет).
+          <span class="red">data-mode</span>&nbsp;— стартовый режим: on, wave, twinkle, chase, off.
+          Клик по&nbsp;гирлянде переключает режимы по&nbsp;кругу.</p>
+        <p class="intro">JS API на&nbsp;элементе: <b>el.garland.setMode('wave')</b>, <b>el.garland.setColors('two', '#ff3b30', '#0a84ff')</b>, <b>el.garland.next()</b>, <b>el.garland.getState()</b>.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="assets/js/garland.js"></script>
+  <script>
+    // Панель-конструктор: управляет всеми гирляндами страницы через API
+    (function () {
+      var roots = document.querySelectorAll('.garland');
+      function each(fn) { roots.forEach(function (r) { if (r.garland) fn(r.garland); }); }
+
+      var modeBtns = document.querySelectorAll('.gdemo-modes [data-mode]');
+      var colorBtns = document.querySelectorAll('.gdemo-colors [data-colors]');
+      var inputA = document.getElementById('g-color-a');
+      var inputB = document.getElementById('g-color-b');
+      var pickB = document.getElementById('g-pick-b');
+
+      function mark(btns, key, val) {
+        btns.forEach(function (b) {
+          var on = b.dataset[key] === val;
+          b.classList.toggle('red', on);
+          b.classList.toggle('line', !on);
+        });
+      }
+
+      modeBtns.forEach(function (b) {
+        b.addEventListener('click', function () { each(function (g) { g.setMode(b.dataset.mode); }); });
+      });
+      document.addEventListener('garland:mode', function (e) { mark(modeBtns, 'mode', e.detail.mode); });
+
+      function currentScheme() {
+        var active = document.querySelector('.gdemo-colors [data-colors].red');
+        return active ? active.dataset.colors : 'multi';
+      }
+      function applyColors() {
+        var scheme = currentScheme();
+        pickB.style.display = (scheme === 'two') ? '' : 'none';
+        each(function (g) { g.setColors(scheme, inputA.value, inputB.value); });
+      }
+      colorBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          mark(colorBtns, 'colors', b.dataset.colors);
+          applyColors();
+        });
+      });
+      inputA.addEventListener('input', applyColors);
+      inputB.addEventListener('input', applyColors);
+
+      // начальная синхронизация панели со стартовым режимом гирлянды
+      if (roots[0] && roots[0].garland) mark(modeBtns, 'mode', roots[0].garland.getState().mode);
+      mark(colorBtns, 'colors', 'multi');
+      pickB.style.display = 'none';
+    })();
+  </script>
+</body>
+</html>
