@@ -2089,6 +2089,27 @@
       decor.style.top = Math.round(top / z) + 'px';
     }
 
+    // досоздаём секции с шарами, пока ветки не покроют всю ширину экрана
+    var branchClones = [];
+    function fillBranches() {
+      var decor = document.querySelector('.b-head-decor');
+      if (!decor) return;
+      branchClones.forEach(function (el) { el.remove(); });
+      branchClones = [];
+      var proto = decor.querySelector('.b-head-decor__inner');
+      if (!proto) return;
+      var w = decor.clientWidth;
+      var need = Math.ceil(w / 373) + 1;
+      var have = decor.querySelectorAll('.b-head-decor__inner').length;
+      for (var i = have; i < need; i++) {
+        var clone = proto.cloneNode(true);
+        clone.className = 'b-head-decor__inner';
+        clone.style.left = (373 * i) + 'px';
+        decor.appendChild(clone);
+        branchClones.push(clone);
+      }
+    }
+
     function apply() {
       var decor = document.querySelector('.b-head-decor');
       if (decor) {
@@ -2116,11 +2137,12 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       pinBranches();
-      window.addEventListener('load', pinBranches);
+      fillBranches();
+      window.addEventListener('load', function () { pinBranches(); fillBranches(); });
       var pinTimer;
       window.addEventListener('resize', function () {
         clearTimeout(pinTimer);
-        pinTimer = setTimeout(function () { pinBranches(); apply(); }, 300);
+        pinTimer = setTimeout(function () { pinBranches(); fillBranches(); apply(); }, 300);
       });
 
       document.querySelectorAll('#ny-box [data-ny]').forEach(function (input) {
