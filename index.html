@@ -2079,10 +2079,23 @@
 
     window.__snowEnabled = state.on.snow;
 
+    // закрепляем ветки ровно под зелёной плашкой; zoom умножает смещение top — делим на него
+    function pinBranches() {
+      var banner = document.querySelector('.notification');
+      var decor = document.querySelector('.b-head-decor');
+      if (!banner || !decor) return;
+      var z = parseFloat(decor.style.zoom) || 1;
+      var top = banner.getBoundingClientRect().bottom + window.scrollY;
+      decor.style.top = Math.round(top / z) + 'px';
+    }
+
     function apply() {
       var decor = document.querySelector('.b-head-decor');
-      if (decor) decor.style.display = state.on.branches ? '' : 'none';
-      if (decor) decor.style.zoom = state.scale.branches / 100;
+      if (decor) {
+        decor.style.display = state.on.branches ? '' : 'none';
+        decor.style.zoom = state.scale.branches / 100;
+      }
+      pinBranches();
       document.querySelectorAll('.garland').forEach(function (g) {
         g.style.display = state.on.garland ? '' : 'none';
         var svg = g.querySelector('svg');
@@ -2102,14 +2115,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      // закрепляем ветки ровно под зелёной плашкой при любом размере окна
-      function pinBranches() {
-        var banner = document.querySelector('.notification');
-        var decor = document.querySelector('.b-head-decor');
-        if (!banner || !decor) return;
-        var top = banner.getBoundingClientRect().bottom + window.scrollY;
-        decor.style.top = Math.round(top) + 'px';
-      }
       pinBranches();
       window.addEventListener('load', pinBranches);
       var pinTimer;
