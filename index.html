@@ -1953,11 +1953,11 @@
 
   styleSheet.insertRule(`
       .iisnowflake {
-       width: 6px;
-       height: 6px;
-       border-radius: 3px;
+       width: 8px;
+       height: 8px;
+       border-radius: 4px;
        background: #fff;
-       box-shadow: 0 0 4px rgba(255,255,255,.9);
+       box-shadow: 0 0 6px rgba(255,255,255,1);
        position: absolute;
       }
   `, styleSheet.cssRules.length);
@@ -1972,6 +1972,7 @@
        height: 100vh;
        position: fixed;
        pointer-events: none;
+       z-index: 9999;
       }
   `, styleSheet.cssRules.length);
 
@@ -1993,13 +1994,13 @@
       this.x = Math.random() * this.rect.width;
       this.y = Math.random() * this.rect.height;
       this.opacity = 0;
-      this.maxopacity = Math.random() * 0.5 + 0.2;
+      this.maxopacity = Math.random() * 0.4 + 0.6;
       this.dy = Math.random() + 0.3;
       this.dx = Math.random() - 0.5;
       this.element = document.createElement("div");
       this.element.classList.add("iisnowflake");
       this.element.style.opacity = this.opacity;
-      var size = (4 + Math.random() * 5).toFixed(1) + "px";
+      var size = (6 + Math.random() * 7).toFixed(1) + "px";
       this.element.style.width = size;
       this.element.style.height = size;
       container.appendChild(this.element);
