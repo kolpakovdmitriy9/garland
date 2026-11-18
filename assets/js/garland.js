@@ -57,10 +57,14 @@
     var rand = rnd(seedBase);
     var W = Math.max(root.clientWidth, 320);
     var S = sizes(W);
+    // вертикальный масштаб: провод всегда на всю ширину, лампочки и провисание — масштабируются
+    var k = parseFloat(root.dataset.hscale);
+    if (!(k > 0)) k = 1;
+    var amp = S.amp * k, leadMin = S.leadMin * k, leadMax = S.leadMax * k;
     var n = Math.max(5, Math.round(W / S.step));
     var gap = W / n;
-    var midY = S.amp + 14;
-    var H = midY + S.amp + S.leadMax + 34;
+    var midY = amp + 14;
+    var H = midY + amp + leadMax + 34 * k;
     var phase = rand() * Math.PI * 2;
     var freq = (Math.PI * 2 * (1.5 + rand())) / W;
 
@@ -69,7 +73,7 @@
     // провод — плавная волна, точки каждые ~16px
     var d = '';
     for (var x = 0; x <= W; x += 16) {
-      var y = midY + S.amp * Math.sin(freq * x + phase);
+      var y = midY + amp * Math.sin(freq * x + phase);
       d += (x === 0 ? 'M' : 'L') + x + ' ' + y.toFixed(1) + ' ';
     }
     svg.appendChild(el('path', { d: d.trim(), 'class': 'g-wire' }));
@@ -77,10 +81,10 @@
     // лампочки на проводе
     for (var i = 0; i < n; i++) {
       var bx = Math.round(gap * (i + 0.5));
-      var wy = midY + S.amp * Math.sin(freq * bx + phase);
-      var lead = Math.round(S.leadMin + rand() * (S.leadMax - S.leadMin));
+      var wy = midY + amp * Math.sin(freq * bx + phase);
+      var lead = Math.round(leadMin + rand() * (leadMax - leadMin));
       var tilt = Math.round((rand() - 0.5) * 10);
-      var by = wy + lead + 10;
+      var by = wy + lead + 10 * k;
 
       var g = el('g', { 'class': 'g-bulb' });
       g.style.setProperty('--i', i);
@@ -88,11 +92,11 @@
       g.style.setProperty('--d', (-rand() * 3).toFixed(2) + 's');
       g.setAttribute('transform', 'translate(' + bx + ' ' + by + ') rotate(' + tilt + ')');
 
-      var leadLine = el('line', { x1: 0, y1: -lead - 10, x2: 0, y2: -10, 'class': 'g-lead' });
-      var glow = el('ellipse', { cx: 0, cy: 8, rx: 17, ry: 21, 'class': 'g-glow' });
-      var body = el('ellipse', { cx: 0, cy: 8, rx: 8, ry: 11, 'class': 'g-body' });
-      var cap = el('ellipse', { cx: 0, cy: -6, rx: 4.5, ry: 3.5, 'class': 'g-cap' });
-      var shine = el('ellipse', { cx: -2.5, cy: 4, rx: 2.2, ry: 3.5, 'class': 'g-shine' });
+      var leadLine = el('line', { x1: 0, y1: -lead - 10 * k, x2: 0, y2: -10 * k, 'class': 'g-lead' });
+      var glow = el('ellipse', { cx: 0, cy: 8 * k, rx: 17 * k, ry: 21 * k, 'class': 'g-glow' });
+      var body = el('ellipse', { cx: 0, cy: 8 * k, rx: 8 * k, ry: 11 * k, 'class': 'g-body' });
+      var cap = el('ellipse', { cx: 0, cy: -6 * k, rx: 4.5 * k, ry: 3.5 * k, 'class': 'g-cap' });
+      var shine = el('ellipse', { cx: -2.5 * k, cy: 4 * k, rx: 2.2 * k, ry: 3.5 * k, 'class': 'g-shine' });
 
       g.appendChild(glow); g.appendChild(body); g.appendChild(cap); g.appendChild(leadLine); g.appendChild(shine);
       svg.appendChild(g);
@@ -135,6 +139,10 @@
       },
       getState: function () {
         return { mode: root.dataset.mode, colors: root.dataset.colors };
+      },
+      rebuild: function () {
+        build(root);
+        setMode(root, root.dataset.mode);
       }
     };
     root.garland = api;

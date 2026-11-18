@@ -2119,13 +2119,8 @@
       pinBranches();
       document.querySelectorAll('.garland').forEach(function (g) {
         g.style.display = state.on.garland ? '' : 'none';
-        var svg = g.querySelector('svg');
-        if (svg) {
-          var p = state.scale.garland;
-          svg.style.width = p + '%';           // ширина подстраивается пропорционально высоте
-          svg.style.marginLeft = ((100 - p) / 2) + '%';
-          svg.style.height = 'auto';
-        }
+        g.dataset.hscale = state.scale.garland / 100;
+        if (g.garland && g.garland.rebuild) g.garland.rebuild();
       });
       var snow = document.querySelector('.iisnowflakes');
       if (snow) { snow.style.display = state.on.snow ? '' : 'none'; snow.style.zoom = state.scale.snow / 100; }
