@@ -64,30 +64,20 @@
     var phase = rand() * Math.PI * 2;
     var freq = (Math.PI * 2 * (1.5 + rand())) / W;
 
-    // у краёв провод поднимается вверх за кадр — гирлянда выглядит бесконечной
-    var lift = Math.min(90, W * 0.12);
-    var edgeY = -26;
-    function wireY(x) {
-      var y = midY + S.amp * Math.sin(freq * x + phase);
-      if (x < lift) y = y * (x / lift) + edgeY * (1 - x / lift);
-      else if (x > W - lift) { var t = (W - x) / lift; y = y * t + edgeY * (1 - t); }
-      return y;
-    }
-
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, 'aria-hidden': 'true', focusable: 'false' });
 
     // провод — плавная волна, точки каждые ~16px
     var d = '';
     for (var x = 0; x <= W; x += 16) {
-      d += (x === 0 ? 'M' : 'L') + x + ' ' + wireY(x).toFixed(1) + ' ';
+      var y = midY + S.amp * Math.sin(freq * x + phase);
+      d += (x === 0 ? 'M' : 'L') + x + ' ' + y.toFixed(1) + ' ';
     }
     svg.appendChild(el('path', { d: d.trim(), 'class': 'g-wire' }));
 
-    // лампочки на проводе (не ближе краёв — там провод уходит за кадр)
+    // лампочки на проводе
     for (var i = 0; i < n; i++) {
       var bx = Math.round(gap * (i + 0.5));
-      if (bx < lift || bx > W - lift) continue;
-      var wy = wireY(bx);
+      var wy = midY + S.amp * Math.sin(freq * bx + phase);
       var lead = Math.round(S.leadMin + rand() * (S.leadMax - S.leadMin));
       var tilt = Math.round((rand() - 0.5) * 10);
       var by = wy + lead + 10;
