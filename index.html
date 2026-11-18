@@ -63,11 +63,9 @@
   <link rel="stylesheet" href="assets/css/garland.css"/>
   <link rel="stylesheet" href="assets/motnya/style.css"/>
   <style>
-    /* «Мотня» под шапкой и баннером zkap.ru */
+    /* «Мотня» под шапкой и баннером zkap.ru — позицию выставляет скрипт точно под плашку */
     body{position:relative;}
     .b-page_newyear .b-head-decor{top:146px;z-index:40;height:115px;}
-    @media (min-width:768px){ .b-page_newyear .b-head-decor{top:165px;} }
-    @media (min-width:1440px){ .b-page_newyear .b-head-decor{top:181px;} }
   </style>
     </head>
 
@@ -2098,6 +2096,22 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      // закрепляем ветки ровно под зелёной плашкой при любом размере окна
+      function pinBranches() {
+        var banner = document.querySelector('.notification');
+        var decor = document.querySelector('.b-head-decor');
+        if (!banner || !decor) return;
+        var top = banner.getBoundingClientRect().bottom + window.scrollY;
+        decor.style.top = Math.round(top) + 'px';
+      }
+      pinBranches();
+      window.addEventListener('load', pinBranches);
+      var pinTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(pinTimer);
+        pinTimer = setTimeout(pinBranches, 100);
+      });
+
       document.querySelectorAll('#ny-box [data-ny]').forEach(function (input) {
         input.checked = state.on[input.dataset.ny];
         input.addEventListener('change', function () { state.on[input.dataset.ny] = input.checked; apply(); });
