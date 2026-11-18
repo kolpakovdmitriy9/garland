@@ -24,17 +24,16 @@
 }
 .page .h1{ font-size:var(--fs-h1); }
 .page .h2{ font-size:var(--fs-h2); }
-.page{ padding-top:var(--hdr); }
 .page .block{ padding-top:var(--gap); }
 .page .intro{ font-size:var(--fs-lead);margin-top:16px; }
 .page .sub{ font-size:var(--fs-lead); }
 @media (min-width:768px){ .page .intro{ margin-top:20px; } }
 @media (min-width:1440px){ .page .intro{ margin-top:24px; } }
 
-/* отступ первой секции — место под закреплённую гирлянду (~высота svg + запас) */
-.page .gdemo-hero{ padding-top:120px; }
-@media (min-width:768px){ .page .gdemo-hero{ padding-top:140px; } }
-@media (min-width:1440px){ .page .gdemo-hero{ padding-top:160px; } }
+/* отступ первой секции */
+.page .gdemo-hero{ padding-top:48px; }
+@media (min-width:768px){ .page .gdemo-hero{ padding-top:64px; } }
+@media (min-width:1440px){ .page .gdemo-hero{ padding-top:80px; } }
 
 /* ---------- Панель-конструктор ---------- */
 .page .gdemo-panel{
